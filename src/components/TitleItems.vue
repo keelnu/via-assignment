@@ -3,6 +3,7 @@
     <div class="gallery-item" v-for="(title, index) in titles" :key="title.id">
       <img
         :src="title.images[0].url"
+        :class="{ active: isActive }"
         @click="
           selected(
             title.id,
@@ -40,6 +41,7 @@ export default {
   },
   data() {
     return {
+      isActive: true,
       titles,
     };
   },
@@ -69,6 +71,12 @@ export default {
 
 .gallery-item img {
   margin-top: 2rem;
+}
+
+.active:hover {
+  opacity: 0.4;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
 }
 
 h2 {
