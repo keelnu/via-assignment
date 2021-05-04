@@ -6,8 +6,9 @@
           class="title-grouping"
           @selected-title="updateSelectedTitle"
         />
-
-        <SidebarItem :selectedTitle="selectedTitle" />
+        <aside class="sidebar">
+          <SidebarItem :selectedTitle="selectedTitle" />
+        </aside>
       </div>
     </div>
   </div>
@@ -25,7 +26,6 @@ export default {
   },
   data() {
     return {
-      showMetadata: false,
       selectedTitle: [],
       titles,
     };
@@ -38,10 +38,9 @@ export default {
       } else {
         this.selectedTitle.push(titleInfo);
       }
-      console.log("selectedTitle is now ", this.selectedTitle);
+      // console.log("selectedTitle is now ", this.selectedTitle);
     },
   },
-  computed: {},
 };
 </script>
 
@@ -49,7 +48,9 @@ export default {
 body {
   background: #000000;
   box-sizing: content-box;
+  overflow-y: hidden;
 }
+
 #app {
   overflow: hidden;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -69,28 +70,17 @@ body {
 
 .body {
   display: grid;
-  grid-template-columns: 3.5fr 1fr;
+  height: 100vh;
+  grid-template-columns: 3fr 1fr;
   overflow: hidden;
 }
 
-.title-grouping {
-  overflow-y: scroll;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 3em;
-  gap: 3em;
-}
-
 .sidebar {
-  height: 100%;
-  /* min-width: 240px;
-  max-width: 260px; */
-  position: fixed;
+  position: sticky;
   z-index: 1;
   top: 0;
   right: 0;
   background-color: #000;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 </style>

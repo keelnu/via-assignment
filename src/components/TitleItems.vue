@@ -1,6 +1,6 @@
 <template>
   <div class="title-gallery">
-    <div class="gallery-item" v-for="(title, index) in titles" :key="title.id">
+    <div class="gallery-item" v-for="title in titles" :key="title.id">
       <img
         :src="title.images[0].url"
         :class="{ active: isActive }"
@@ -12,8 +12,8 @@
             title.description.short
           )
         "
-        width="320"
-        height="515"
+        width="260"
+        height="390"
       />
       <h2>{{ title.name }}</h2>
     </div>
@@ -53,9 +53,9 @@ export default {
         rating: rating,
         description: description,
       });
-      console.log(
-        `You selected ${name}, id: ${id}. It's rated ${rating}. Description: ${description}`
-      );
+      // console.log(
+      //   `You selected ${name}, id: ${id}. It's rated ${rating}. Description: ${description}`
+      // );
     },
   },
 };
@@ -64,13 +64,10 @@ export default {
 <style scoped>
 .title-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  grid-gap: 0.75rem;
-  padding: 0 3rem;
-}
-
-.gallery-item img {
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1.5rem 1.25rem;
+  padding: 1.5rem;
+  overflow-y: scroll;
 }
 
 .active:hover {
@@ -79,9 +76,10 @@ export default {
   backface-visibility: hidden;
 }
 
-h2 {
+.gallery-item h2 {
+  width: 70%;
   margin: 0;
-  padding: 0;
-  font-size: 20px;
+  padding: 0 20px 0 0;
+  font-size: 18px;
 }
 </style>
