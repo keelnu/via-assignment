@@ -20,13 +20,15 @@ export default {
 
 <style scoped>
 .title-metadata {
-  padding: 0 3rem 0 2rem;
-  /* padding-left: 1rem; */
+  width: 80%;
+  padding-left: 1.5rem;
+  margin: 0;
+  overflow: hidden;
 }
 
 h2 {
   font-size: 24px;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
   padding: 0;
 }
 
