@@ -1,4 +1,4 @@
-# t
+# Company Takehome Assignment Using VueJS
 
 ## Project setup
 ```
